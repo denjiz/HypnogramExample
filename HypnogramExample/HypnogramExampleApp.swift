@@ -13,7 +13,9 @@ struct HypnogramExampleApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                HomeView()
+                HomeView(viewModel: HomeViewModel(
+                    repository: ExampleHypnogramDataRepository()
+                ))
             }
         }
     }
