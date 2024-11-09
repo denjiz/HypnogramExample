@@ -25,30 +25,41 @@ class DeviceHypnogramDataRepository {
 class ExampleHypnogramDataRepository: HypnogramDataRepository {
     let lastNightData: [HypnogramDataPoint]
     
+    private static let exampleDataDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter
+    }()
+    
     init() {
-        lastNightData = Self.readExampleData()
+        lastNightData = Self.loadExampleData()
     }
     
-    private static func readExampleData() -> [HypnogramDataPoint] {
+    private static func loadExampleFileAsText() -> String {
         guard let fileURL = Bundle.main.url(forResource: "example_hypnogram_data", withExtension: "csv"),
-              let textContent = try? String(contentsOf: fileURL)
+              let text = try? String(contentsOf: fileURL)
         else {
             fatalError("Example data does not exist or is not valid")
         }
-        
-        let lines = textContent.split(whereSeparator: \.isNewline)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        let dataPoints = lines
+        return text
+    }
+    
+    private static func dataPointLines(from exampleFileText: String) -> [String] {
+        exampleFileText
+            .split(whereSeparator: \.isNewline)
             .dropFirst()
+            .map { String($0) }
+    }
+    
+    private static func dataPoints(from dataPointLines: [String]) -> [HypnogramDataPoint] {
+        dataPointLines
             .map { line in
                 let components = line
                     .split(separator: ",")
                     .map { String($0) }
                 
                 guard components.count == 2,
-                      let date = dateFormatter.date(from: components[0])
+                      let date = exampleDataDateFormatter.date(from: components[0])
                 else {
                     fatalError("Invalid example data")
                 }
@@ -56,7 +67,12 @@ class ExampleHypnogramDataRepository: HypnogramDataRepository {
                 let phase = components[1]
                 return HypnogramDataPoint(date: date, phase: phase)
             }
-        
+    }
+    
+    private static func loadExampleData() -> [HypnogramDataPoint] {
+        let exampleFileText = loadExampleFileAsText()
+        let dataPointLines = dataPointLines(from: exampleFileText)
+        let dataPoints = dataPoints(from: dataPointLines)
         return dataPoints
     }
 }
