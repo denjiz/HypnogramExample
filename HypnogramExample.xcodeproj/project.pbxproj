@@ -12,6 +12,8 @@
 		E9CBC5F42CDF56E10086E1B7 /* HypnogramExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBC5EF2CDF56E00086E1B7 /* HypnogramExampleApp.swift */; };
 		E9CBC5F92CDF58970086E1B7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBC5F82CDF58970086E1B7 /* HomeView.swift */; };
 		E9CBC5FB2CDF59910086E1B7 /* UITexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBC5FA2CDF59910086E1B7 /* UITexts.swift */; };
+		E9CBC6062CDF6BF30086E1B7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBC6052CDF6BF30086E1B7 /* HomeViewModel.swift */; };
+		E9CBC6082CDF6C3D0086E1B7 /* HypnogramChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBC6072CDF6C3D0086E1B7 /* HypnogramChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		E9CBC5EF2CDF56E00086E1B7 /* HypnogramExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnogramExampleApp.swift; sourceTree = "<group>"; };
 		E9CBC5F82CDF58970086E1B7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E9CBC5FA2CDF59910086E1B7 /* UITexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITexts.swift; sourceTree = "<group>"; };
+		E9CBC6052CDF6BF30086E1B7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E9CBC6072CDF6C3D0086E1B7 /* HypnogramChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnogramChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +69,7 @@
 				E9CBC5ED2CDF56E00086E1B7 /* Assets.xcassets */,
 				E9CBC5F52CDF58620086E1B7 /* Model */,
 				E9CBC5FE2CDF5B6A0086E1B7 /* DataAccess */,
-				E9CBC5F62CDF58680086E1B7 /* ViewModel */,
+				E9CBC6042CDF6BE30086E1B7 /* ViewModel */,
 				E9CBC5F72CDF58710086E1B7 /* View */,
 				E9CBC5EC2CDF56E00086E1B7 /* Preview Content */,
 			);
@@ -79,18 +83,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E9CBC5F62CDF58680086E1B7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		E9CBC5F72CDF58710086E1B7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E9CBC5FA2CDF59910086E1B7 /* UITexts.swift */,
 				E9CBC5F82CDF58970086E1B7 /* HomeView.swift */,
+				E9CBC6072CDF6C3D0086E1B7 /* HypnogramChart.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,6 +98,14 @@
 			children = (
 			);
 			path = DataAccess;
+			sourceTree = "<group>";
+		};
+		E9CBC6042CDF6BE30086E1B7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9CBC6052CDF6BF30086E1B7 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +184,8 @@
 				E9CBC5F42CDF56E10086E1B7 /* HypnogramExampleApp.swift in Sources */,
 				E9CBC5FB2CDF59910086E1B7 /* UITexts.swift in Sources */,
 				E9CBC5F92CDF58970086E1B7 /* HomeView.swift in Sources */,
+				E9CBC6062CDF6BF30086E1B7 /* HomeViewModel.swift in Sources */,
+				E9CBC6082CDF6C3D0086E1B7 /* HypnogramChart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
