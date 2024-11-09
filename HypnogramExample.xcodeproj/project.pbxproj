@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E95663552CDF7C2A004C6227 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95663542CDF7C2A004C6227 /* HomeViewModelTests.swift */; };
+		E95663572CDF8016004C6227 /* HypnogramDataRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95663562CDF8016004C6227 /* HypnogramDataRepositoryStub.swift */; };
 		E9CBC5F12CDF56E00086E1B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CBC5EB2CDF56E00086E1B7 /* Preview Assets.xcassets */; };
 		E9CBC5F22CDF56E00086E1B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CBC5ED2CDF56E00086E1B7 /* Assets.xcassets */; };
 		E9CBC5F42CDF56E10086E1B7 /* HypnogramExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBC5EF2CDF56E00086E1B7 /* HypnogramExampleApp.swift */; };
@@ -18,7 +20,20 @@
 		E9CBC60C2CDF73B40086E1B7 /* HypnogramDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBC60B2CDF73B40086E1B7 /* HypnogramDataRepository.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E956634C2CDF7BF0004C6227 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9CBC5D02CDF4B730086E1B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9CBC5D72CDF4B730086E1B7;
+			remoteInfo = HypnogramExample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		E95663482CDF7BF0004C6227 /* HypnogramExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HypnogramExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E95663542CDF7C2A004C6227 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		E95663562CDF8016004C6227 /* HypnogramDataRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnogramDataRepositoryStub.swift; sourceTree = "<group>"; };
 		E9CBC5D82CDF4B730086E1B7 /* HypnogramExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnogramExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CBC5EB2CDF56E00086E1B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E9CBC5ED2CDF56E00086E1B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +47,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E95663452CDF7BF0004C6227 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9CBC5D52CDF4B730086E1B7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +64,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E95663522CDF7BFF004C6227 /* HypnogramExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				E95663562CDF8016004C6227 /* HypnogramDataRepositoryStub.swift */,
+				E95663542CDF7C2A004C6227 /* HomeViewModelTests.swift */,
+			);
+			path = HypnogramExampleTests;
+			sourceTree = "<group>";
+		};
 		E9CBC5CF2CDF4B730086E1B7 = {
 			isa = PBXGroup;
 			children = (
 				E9CBC5F02CDF56E00086E1B7 /* HypnogramExample */,
+				E95663522CDF7BFF004C6227 /* HypnogramExampleTests */,
 				E9CBC5D92CDF4B730086E1B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CBC5D82CDF4B730086E1B7 /* HypnogramExample.app */,
+				E95663482CDF7BF0004C6227 /* HypnogramExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +150,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E95663472CDF7BF0004C6227 /* HypnogramExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E95663502CDF7BF0004C6227 /* Build configuration list for PBXNativeTarget "HypnogramExampleTests" */;
+			buildPhases = (
+				E95663442CDF7BF0004C6227 /* Sources */,
+				E95663452CDF7BF0004C6227 /* Frameworks */,
+				E95663462CDF7BF0004C6227 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E956634D2CDF7BF0004C6227 /* PBXTargetDependency */,
+			);
+			name = HypnogramExampleTests;
+			packageProductDependencies = (
+			);
+			productName = HypnogramExampleTests;
+			productReference = E95663482CDF7BF0004C6227 /* HypnogramExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E9CBC5D72CDF4B730086E1B7 /* HypnogramExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9CBC5E62CDF4B750086E1B7 /* Build configuration list for PBXNativeTarget "HypnogramExample" */;
@@ -146,6 +199,10 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
+					E95663472CDF7BF0004C6227 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = E9CBC5D72CDF4B730086E1B7;
+					};
 					E9CBC5D72CDF4B730086E1B7 = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -166,11 +223,19 @@
 			projectRoot = "";
 			targets = (
 				E9CBC5D72CDF4B730086E1B7 /* HypnogramExample */,
+				E95663472CDF7BF0004C6227 /* HypnogramExampleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E95663462CDF7BF0004C6227 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9CBC5D62CDF4B730086E1B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +248,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E95663442CDF7BF0004C6227 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E95663552CDF7C2A004C6227 /* HomeViewModelTests.swift in Sources */,
+				E95663572CDF8016004C6227 /* HypnogramDataRepositoryStub.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9CBC5D42CDF4B730086E1B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -199,7 +273,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E956634D2CDF7BF0004C6227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9CBC5D72CDF4B730086E1B7 /* HypnogramExample */;
+			targetProxy = E956634C2CDF7BF0004C6227 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		E956634E2CDF7BF0004C6227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.denismendica.HypnogramExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HypnogramExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HypnogramExample";
+				XROS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		E956634F2CDF7BF0004C6227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.denismendica.HypnogramExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HypnogramExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HypnogramExample";
+				XROS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
 		E9CBC5E42CDF4B750086E1B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +506,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E95663502CDF7BF0004C6227 /* Build configuration list for PBXNativeTarget "HypnogramExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E956634E2CDF7BF0004C6227 /* Debug */,
+				E956634F2CDF7BF0004C6227 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E9CBC5D32CDF4B730086E1B7 /* Build configuration list for PBXProject "HypnogramExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
