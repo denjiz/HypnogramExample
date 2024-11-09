@@ -25,12 +25,6 @@ class DeviceHypnogramDataRepository {
 class ExampleHypnogramDataRepository: HypnogramDataRepository {
     let lastNightData: [HypnogramDataPoint]
     
-    private static let exampleDataDateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter
-    }()
-    
     init() {
         lastNightData = Self.loadExampleData()
     }
@@ -59,13 +53,13 @@ class ExampleHypnogramDataRepository: HypnogramDataRepository {
                     .map { String($0) }
                 
                 guard components.count == 2,
-                      let date = exampleDataDateFormatter.date(from: components[0])
+                      let timestamp = TimeInterval(components[0])
                 else {
                     fatalError("Invalid example data")
                 }
                 
                 let phase = components[1]
-                return HypnogramDataPoint(date: date, phase: phase)
+                return HypnogramDataPoint(timestamp: timestamp, phase: phase)
             }
     }
     

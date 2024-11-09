@@ -18,20 +18,20 @@ class PreviewHypnogramDataRepository: HypnogramDataRepository {
 extension PreviewHypnogramDataRepository {
     
     static func withSampleData() -> PreviewHypnogramDataRepository {
-        let startOfToday = Calendar.current.startOfDay(for: .now)
+        let startOfToday = Calendar.current.startOfDay(for: .now).timeIntervalSince1970
         let hypnogramDataStart = startOfToday - 2*60*60
         
         let sampleData = [
-            HypnogramDataPoint(date: hypnogramDataStart,              phase: "Awake"),
-            HypnogramDataPoint(date: hypnogramDataStart + 15*60,      phase: "Awake"),
-            HypnogramDataPoint(date: hypnogramDataStart + 15*60 + 30, phase: "REM"),
-            HypnogramDataPoint(date: hypnogramDataStart + 30*60,      phase: "REM"),
-            HypnogramDataPoint(date: hypnogramDataStart + 30*60 + 30, phase: "Core"),
-            HypnogramDataPoint(date: hypnogramDataStart + 45*60,      phase: "Core"),
-            HypnogramDataPoint(date: hypnogramDataStart + 45*60 + 30, phase: "Deep"),
-            HypnogramDataPoint(date: hypnogramDataStart + 75*60,      phase: "Deep"),
-            HypnogramDataPoint(date: hypnogramDataStart + 75*60 + 30, phase: "Core"),
-            HypnogramDataPoint(date: hypnogramDataStart + 90*60,      phase: "Core")
+            HypnogramDataPoint(timestamp: hypnogramDataStart,              phase: "Awake"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 15*60,      phase: "Awake"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 15*60 + 30, phase: "REM"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 30*60,      phase: "REM"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 30*60 + 30, phase: "Core"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 45*60,      phase: "Core"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 45*60 + 30, phase: "Deep"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 75*60,      phase: "Deep"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 75*60 + 30, phase: "Core"),
+            HypnogramDataPoint(timestamp: hypnogramDataStart + 90*60,      phase: "Core")
         ]
         
         let respository = PreviewHypnogramDataRepository(lastNightData: sampleData)

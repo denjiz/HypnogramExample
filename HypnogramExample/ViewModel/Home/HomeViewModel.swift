@@ -45,9 +45,12 @@ extension HomeViewModel {
             }
             .flatMap { $0 }
             .map { dataPoint in
-                HypnogramMarkData(
-                    date: dataPoint.date,
-                    phase: dataPoint.phase
+                let date = Date(timeIntervalSince1970: dataPoint.timestamp)
+                let phase = dataPoint.phase
+                
+                return HypnogramMarkData(
+                    date: date,
+                    phase: phase
                 )
             }
     }

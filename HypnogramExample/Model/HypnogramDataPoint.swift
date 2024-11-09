@@ -8,6 +8,6 @@
 import Foundation
 
 struct HypnogramDataPoint {
-    let date: Date
+    let timestamp: TimeInterval
     let phase: String
 }

@@ -32,52 +32,52 @@ extension HomeViewModelTests {
     }
     
     static func testCasesData() -> [TestCaseData] {
-        let startTimeInterval: TimeInterval = 1731099600
+        let startTimestamp: TimeInterval = 1731099600
         
         return [
             TestCaseData(
                 repositoryData: [
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval),       phase: "Awake"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 30),  phase: "Awake"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 60),  phase: "Awake"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 90),  phase: "REM"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 120), phase: "REM"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 150), phase: "REM"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 180), phase: "Core"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 210), phase: "Core"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 240), phase: "Core"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 270), phase: "Deep"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 300), phase: "Deep"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 330), phase: "Deep"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 270), phase: "Deep"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 300), phase: "Core"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 330), phase: "Core")
+                    HypnogramDataPoint(timestamp: startTimestamp,       phase: "Awake"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 30,  phase: "Awake"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 60,  phase: "Awake"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 90,  phase: "REM"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 120, phase: "REM"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 150, phase: "REM"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 180, phase: "Core"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 210, phase: "Core"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 240, phase: "Core"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 270, phase: "Deep"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 300, phase: "Deep"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 330, phase: "Deep"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 270, phase: "Deep"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 300, phase: "Core"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 330, phase: "Core")
                 ],
                 expectedViewData: [
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval),       phase: "Awake"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 60),  phase: "Awake"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 90),  phase: "REM"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 150), phase: "REM"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 180), phase: "Core"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 240), phase: "Core"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 270), phase: "Deep"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 270), phase: "Deep"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 300), phase: "Core"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 330), phase: "Core")
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp),       phase: "Awake"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 60),  phase: "Awake"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 90),  phase: "REM"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 150), phase: "REM"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 180), phase: "Core"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 240), phase: "Core"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 270), phase: "Deep"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 270), phase: "Deep"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 300), phase: "Core"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 330), phase: "Core")
                 ]
             ),
             TestCaseData(
                 repositoryData: [
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval),       phase: "Awake"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 30),  phase: "Deep"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 60),  phase: "REM"),
-                    HypnogramDataPoint(date: Date(timeIntervalSince1970: startTimeInterval + 90),  phase: "Core")
+                    HypnogramDataPoint(timestamp: startTimestamp,      phase: "Awake"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 30, phase: "Deep"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 60, phase: "REM"),
+                    HypnogramDataPoint(timestamp: startTimestamp + 90, phase: "Core")
                 ],
                 expectedViewData: [
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval),       phase: "Awake"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 30),  phase: "Deep"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 60),  phase: "REM"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimeInterval + 90),  phase: "Core")
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp),       phase: "Awake"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 30),  phase: "Deep"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 60),  phase: "REM"),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 90),  phase: "Core")
                 ]
             ),
             TestCaseData(
