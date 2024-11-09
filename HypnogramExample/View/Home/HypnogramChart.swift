@@ -18,10 +18,17 @@ struct HypnogramChart: View {
                 y: .value("Phase", markData.phase)
             )
         }
+        .chartXAxis {
+            AxisMarks(values: .stride(by: .hour, count: 2)) {
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel(format: .dateTime.hour().minute())
+            }
+        }
     }
 }
 
-#Preview {
+#Preview("All phases") {
     let startOfToday = Calendar.current.startOfDay(for: .now)
     let hypnogramDataStart = startOfToday - 2*60*60
     
@@ -33,6 +40,16 @@ struct HypnogramChart: View {
         HypnogramMarkData(date: hypnogramDataStart + 30*60 + 30, phase: "Core"),
         HypnogramMarkData(date: hypnogramDataStart + 45*60,      phase: "Core"),
         HypnogramMarkData(date: hypnogramDataStart + 45*60 + 30, phase: "Deep"),
-        HypnogramMarkData(date: hypnogramDataStart + 75*60,      phase: "Deep")
+        HypnogramMarkData(date: hypnogramDataStart + 60*60,      phase: "Deep")
+    ])
+}
+
+#Preview("9-hour range") {
+    let startOfToday = Calendar.current.startOfDay(for: .now)
+    let hypnogramDataStart = startOfToday - 2*60*60
+    
+    HypnogramChart(data: [
+        HypnogramMarkData(date: hypnogramDataStart,           phase: "Awake"),
+        HypnogramMarkData(date: hypnogramDataStart + 9*60*60, phase: "Awake"),
     ])
 }
