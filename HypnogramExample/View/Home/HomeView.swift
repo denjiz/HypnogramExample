@@ -22,6 +22,7 @@ struct HomeView: View {
     @ViewBuilder private var chart: some View {
         HypnogramChart(data: viewModel.lastNightData)
             .frame(maxHeight: 300)
+            .padding()
     }
 }
 
