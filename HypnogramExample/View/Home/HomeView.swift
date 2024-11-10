@@ -13,16 +13,30 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
-            chart
+            summaryAndChart
             Spacer()
         }
         .navigationTitle(texts.title)
     }
     
-    @ViewBuilder private var chart: some View {
+    private var summaryAndChart: some View {
+        VStack(spacing: 60) {
+            summaryView
+            chart
+        }
+        .padding()
+    }
+    
+    private var summaryView: some View {
+        SummaryView(
+            startDate: viewModel.lastNightData.first?.date,
+            endDate: viewModel.lastNightData.last?.date
+        )
+    }
+    
+    private var chart: some View {
         HypnogramChart(data: viewModel.lastNightData)
             .frame(maxHeight: 300)
-            .padding()
     }
 }
 

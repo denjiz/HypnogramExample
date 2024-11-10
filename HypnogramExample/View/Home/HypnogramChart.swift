@@ -10,42 +10,9 @@ import Charts
 
 struct HypnogramChart: View {
     let data: [HypnogramMarkData]
-    
     private let genericTexts = UITexts.Generic.self
-    private let chartTexts = UITexts.Home.Chart.self
     
     var body: some View {
-        VStack(spacing: 60) {
-            summaryView
-            chart
-        }
-    }
-    
-    @ViewBuilder private var summaryView: some View {
-        if let totalRecordingInterval {
-            totalRecordingIntervalView(for: totalRecordingInterval)
-        }
-    }
-    
-    private func totalRecordingIntervalView(for interval: String) -> some View {
-        VStack(alignment: .leading) {
-            totalRecordingIntervalTitle
-            totalRecordingIntervalText(for: interval)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-    
-    private var totalRecordingIntervalTitle: some View {
-        Text(chartTexts.totalRecordingIntervalTitle)
-    }
-    
-    private func totalRecordingIntervalText(for interval: String) -> some View {
-        Text(interval)
-            .font(.title)
-            .fontWeight(.bold)
-    }
-    
-    private var chart: some View {
         Chart {
             lineMarks
             startAndEndIndicators
@@ -98,16 +65,6 @@ struct HypnogramChart: View {
     
     private var yAxisContent: some AxisContent {
         AxisMarks(preset: .extended)
-    }
-}
-
-fileprivate extension HypnogramChart {
-    
-    var totalRecordingInterval: String? {
-        chartTexts.totalRecordingIntervalString(
-            startDate: data.first?.date,
-            endDate: data.last?.date
-        )
     }
 }
 

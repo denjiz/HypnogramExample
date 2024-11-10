@@ -17,7 +17,7 @@ enum UITexts {
     enum Home {
         static let title = "Last Night's Sleep"
         
-        enum Chart {
+        enum Summary {
             static let totalRecordingIntervalTitle = "Data recorded for a total of:"
             
             private static let totalRecordingIntervalFormatter: DateComponentsFormatter = {
