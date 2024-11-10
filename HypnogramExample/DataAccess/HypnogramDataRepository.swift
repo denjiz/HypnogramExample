@@ -11,9 +11,11 @@ protocol HypnogramDataRepository {
     var lastNightData: [HypnogramDataPoint] { get }
 }
 
-// In a real app, this class would be reponsible for fetching the actual
-// data from a device (or from an API service, if the data was stored
-// remotely on a server).
+/*
+ In a real app, this class would be reponsible for fetching the actual
+ data from a device (or from an API service, if the data was stored remotely
+ on a server).
+ */
 class DeviceHypnogramDataRepository {
     
     var lastNightData: [HypnogramDataPoint] {
@@ -21,7 +23,9 @@ class DeviceHypnogramDataRepository {
     }
 }
 
-// This class generates and provides the example data displayed in the app
+/*
+ This class generates the example data that's displayed in the app.
+ */
 class ExampleHypnogramDataRepository: HypnogramDataRepository {
     let lastNightData: [HypnogramDataPoint]
     
@@ -85,7 +89,6 @@ fileprivate extension ExampleHypnogramDataRepository {
         startTimestamp: TimeInterval,
         phases: [PhaseGenerationInfo]
     ) -> [HypnogramDataPoint] {
-        
         var dataPoints = [HypnogramDataPoint]()
         var nextPhaseStartTimestamp = startTimestamp
         for phase in phases {

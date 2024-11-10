@@ -14,7 +14,7 @@ struct HypnogramExampleApp: App {
         WindowGroup {
             NavigationStack {
                 HomeView(viewModel: HomeViewModel(
-                    repository: ExampleHypnogramDataRepository()
+                    repository: ExampleHypnogramDataRepository() // inject example data
                 ))
             }
         }

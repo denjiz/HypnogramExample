@@ -7,6 +7,9 @@
 
 import Foundation
 
+/*
+ This type models the raw data coming from a sleep-tracking device.
+ */
 struct HypnogramDataPoint {
     let timestamp: TimeInterval
     let phase: String
