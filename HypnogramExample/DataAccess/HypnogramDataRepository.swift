@@ -21,52 +21,83 @@ class DeviceHypnogramDataRepository {
     }
 }
 
-// This class holds the example data displayed in the app
+// This class generates and provides the example data displayed in the app
 class ExampleHypnogramDataRepository: HypnogramDataRepository {
     let lastNightData: [HypnogramDataPoint]
     
     init() {
-        lastNightData = Self.loadExampleData()
+        lastNightData = Self.generateExampleData()
+    }
+}
+
+fileprivate extension ExampleHypnogramDataRepository {
+    
+    struct PhaseGenerationInfo {
+        let phase: String
+        let durationInMinutes: TimeInterval
     }
     
-    private static func loadExampleFileAsText() -> String {
-        guard let fileURL = Bundle.main.url(forResource: "example_hypnogram_data", withExtension: "csv"),
-              let text = try? String(contentsOf: fileURL)
-        else {
-            fatalError("Example data does not exist or is not valid")
-        }
-        return text
+    private static let dataPointIntervalInSeconds: TimeInterval = 30
+    
+    static func generateExampleData() -> [HypnogramDataPoint] {
+        let startOfToday = Calendar.current.startOfDay(for: Date())
+        let dataStartTimestamp = startOfToday.timeIntervalSince1970 - 2*60*60
+        
+        let phases = [
+            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 20),
+            PhaseGenerationInfo(phase: "Deep",  durationInMinutes: 60),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 20),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 45),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 30),
+            PhaseGenerationInfo(phase: "Deep",  durationInMinutes: 10),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "Deep",  durationInMinutes: 10),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 40),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 10),
+            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 1),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 2),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 1),
+            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 2),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 2),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 1),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 20),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 10),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 30),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 10),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 50),
+            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 70)
+        ]
+        
+        let dataPoints = generateDataPoints(
+            startTimestamp: dataStartTimestamp,
+            phases: phases
+        )
+        
+        return dataPoints
     }
     
-    private static func dataPointLines(from exampleFileText: String) -> [String] {
-        exampleFileText
-            .split(whereSeparator: \.isNewline)
-            .dropFirst()
-            .map { String($0) }
-    }
-    
-    private static func dataPoints(from dataPointLines: [String]) -> [HypnogramDataPoint] {
-        dataPointLines
-            .map { line in
-                let components = line
-                    .split(separator: ",")
-                    .map { String($0) }
-                
-                guard components.count == 2,
-                      let timestamp = TimeInterval(components[0])
-                else {
-                    fatalError("Invalid example data")
-                }
-                
-                let phase = components[1]
-                return HypnogramDataPoint(timestamp: timestamp, phase: phase)
+    private static func generateDataPoints(
+        startTimestamp: TimeInterval,
+        phases: [PhaseGenerationInfo]
+    ) -> [HypnogramDataPoint] {
+        
+        var dataPoints = [HypnogramDataPoint]()
+        var nextPhaseStartTimestamp = startTimestamp
+        for phase in phases {
+            let dataPointCount = Int(phase.durationInMinutes * 60 / dataPointIntervalInSeconds)
+            for i in 0..<dataPointCount {
+                let dataPointTimestamp = nextPhaseStartTimestamp + Double(i) * dataPointIntervalInSeconds
+                let dataPoint = HypnogramDataPoint(timestamp: dataPointTimestamp, phase: phase.phase)
+                dataPoints.append(dataPoint)
             }
-    }
-    
-    private static func loadExampleData() -> [HypnogramDataPoint] {
-        let exampleFileText = loadExampleFileAsText()
-        let dataPointLines = dataPointLines(from: exampleFileText)
-        let dataPoints = dataPoints(from: dataPointLines)
+            nextPhaseStartTimestamp += Double(dataPointCount) * dataPointIntervalInSeconds
+        }
+        
         return dataPoints
     }
 }

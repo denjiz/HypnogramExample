@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E95663552CDF7C2A004C6227 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95663542CDF7C2A004C6227 /* HomeViewModelTests.swift */; };
 		E95663572CDF8016004C6227 /* HypnogramDataRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95663562CDF8016004C6227 /* HypnogramDataRepositoryStub.swift */; };
-		E956635A2CDFA094004C6227 /* example_hypnogram_data.csv in Resources */ = {isa = PBXBuildFile; fileRef = E95663592CDFA094004C6227 /* example_hypnogram_data.csv */; };
 		E956635C2CDFA1D8004C6227 /* PreviewHypnogramDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956635B2CDFA1D8004C6227 /* PreviewHypnogramDataRepository.swift */; };
 		E9CBC5F12CDF56E00086E1B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CBC5EB2CDF56E00086E1B7 /* Preview Assets.xcassets */; };
 		E9CBC5F22CDF56E00086E1B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9CBC5ED2CDF56E00086E1B7 /* Assets.xcassets */; };
@@ -36,7 +35,6 @@
 		E95663482CDF7BF0004C6227 /* HypnogramExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HypnogramExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95663542CDF7C2A004C6227 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		E95663562CDF8016004C6227 /* HypnogramDataRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypnogramDataRepositoryStub.swift; sourceTree = "<group>"; };
-		E95663592CDFA094004C6227 /* example_hypnogram_data.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = example_hypnogram_data.csv; sourceTree = "<group>"; };
 		E956635B2CDFA1D8004C6227 /* PreviewHypnogramDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewHypnogramDataRepository.swift; sourceTree = "<group>"; };
 		E9CBC5D82CDF4B730086E1B7 /* HypnogramExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HypnogramExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9CBC5EB2CDF56E00086E1B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -75,14 +73,6 @@
 				E95663542CDF7C2A004C6227 /* HomeViewModelTests.swift */,
 			);
 			path = HypnogramExampleTests;
-			sourceTree = "<group>";
-		};
-		E95663582CDFA06F004C6227 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E95663592CDFA094004C6227 /* example_hypnogram_data.csv */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		E956635D2CDFA6AD004C6227 /* Home */ = {
@@ -141,7 +131,6 @@
 			children = (
 				E9CBC5EF2CDF56E00086E1B7 /* HypnogramExampleApp.swift */,
 				E9CBC5ED2CDF56E00086E1B7 /* Assets.xcassets */,
-				E95663582CDFA06F004C6227 /* Resources */,
 				E9CBC5F52CDF58620086E1B7 /* Model */,
 				E9CBC5FE2CDF5B6A0086E1B7 /* DataAccess */,
 				E9CBC6042CDF6BE30086E1B7 /* ViewModel */,
@@ -278,7 +267,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E956635A2CDFA094004C6227 /* example_hypnogram_data.csv in Resources */,
 				E9CBC5F12CDF56E00086E1B7 /* Preview Assets.xcassets in Resources */,
 				E9CBC5F22CDF56E00086E1B7 /* Assets.xcassets in Resources */,
 			);
