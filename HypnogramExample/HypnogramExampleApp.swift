@@ -13,10 +13,14 @@ struct HypnogramExampleApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                HomeView(viewModel: HomeViewModel(
-                    repository: ExampleHypnogramDataRepository() // inject example data
-                ))
+                homeView
             }
         }
+    }
+    
+    private var homeView: HomeView {
+        HomeView(viewModel: HomeViewModel(
+            repository: ExampleHypnogramDataRepository() // inject example data
+        ))
     }
 }
