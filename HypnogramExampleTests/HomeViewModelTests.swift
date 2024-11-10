@@ -54,16 +54,16 @@ extension HomeViewModelTests {
                     HypnogramDataPoint(timestamp: startTimestamp + 330, phase: "Core")
                 ],
                 expectedViewData: [
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp),       phase: "Awake"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 60),  phase: "Awake"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 90),  phase: "REM"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 150), phase: "REM"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 180), phase: "Core"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 240), phase: "Core"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 270), phase: "Deep"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 270), phase: "Deep"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 300), phase: "Core"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 330), phase: "Core")
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp),       phase: .awake),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 60),  phase: .awake),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 90),  phase: .rem),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 150), phase: .rem),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 180), phase: .core),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 240), phase: .core),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 270), phase: .deep),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 270), phase: .deep),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 300), phase: .core),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 330), phase: .core)
                 ]
             ),
             TestCaseData(
@@ -74,10 +74,10 @@ extension HomeViewModelTests {
                     HypnogramDataPoint(timestamp: startTimestamp + 90, phase: "Core")
                 ],
                 expectedViewData: [
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp),       phase: "Awake"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 30),  phase: "Deep"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 60),  phase: "REM"),
-                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 90),  phase: "Core")
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp),       phase: .awake),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 30),  phase: .deep),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 60),  phase: .rem),
+                    HypnogramMarkData(date: Date(timeIntervalSince1970: startTimestamp + 90),  phase: .core)
                 ]
             ),
             TestCaseData(

@@ -56,6 +56,7 @@ struct HypnogramChart: View {
         .chartYAxis {
             yAxisContent
         }
+        .chartYScale(domain: HypnogramPhase.allCases)
     }
     
     private var lineMarks: some ChartContent {
@@ -110,19 +111,35 @@ fileprivate extension HypnogramChart {
     }
 }
 
+extension HypnogramPhase: Plottable {}
+
 #Preview("All phases") {
     let startOfToday = Calendar.current.startOfDay(for: .now)
     let hypnogramDataStart = startOfToday - 2*60*60
     
     HypnogramChart(data: [
-        HypnogramMarkData(date: hypnogramDataStart,              phase: "Awake"),
-        HypnogramMarkData(date: hypnogramDataStart + 15*60,      phase: "Awake"),
-        HypnogramMarkData(date: hypnogramDataStart + 15*60 + 30, phase: "REM"),
-        HypnogramMarkData(date: hypnogramDataStart + 30*60,      phase: "REM"),
-        HypnogramMarkData(date: hypnogramDataStart + 30*60 + 30, phase: "Core"),
-        HypnogramMarkData(date: hypnogramDataStart + 45*60,      phase: "Core"),
-        HypnogramMarkData(date: hypnogramDataStart + 45*60 + 30, phase: "Deep"),
-        HypnogramMarkData(date: hypnogramDataStart + 60*60,      phase: "Deep")
+        HypnogramMarkData(date: hypnogramDataStart,              phase: .awake),
+        HypnogramMarkData(date: hypnogramDataStart + 15*60,      phase: .awake),
+        HypnogramMarkData(date: hypnogramDataStart + 15*60 + 30, phase: .rem),
+        HypnogramMarkData(date: hypnogramDataStart + 30*60,      phase: .rem),
+        HypnogramMarkData(date: hypnogramDataStart + 30*60 + 30, phase: .core),
+        HypnogramMarkData(date: hypnogramDataStart + 45*60,      phase: .core),
+        HypnogramMarkData(date: hypnogramDataStart + 45*60 + 30, phase: .deep),
+        HypnogramMarkData(date: hypnogramDataStart + 60*60,      phase: .deep)
+    ])
+}
+
+#Preview("One phase missing") {
+    let startOfToday = Calendar.current.startOfDay(for: .now)
+    let hypnogramDataStart = startOfToday - 2*60*60
+    
+    HypnogramChart(data: [
+        HypnogramMarkData(date: hypnogramDataStart,              phase: .awake),
+        HypnogramMarkData(date: hypnogramDataStart + 15*60,      phase: .awake),
+        HypnogramMarkData(date: hypnogramDataStart + 15*60 + 30, phase: .rem),
+        HypnogramMarkData(date: hypnogramDataStart + 30*60,      phase: .rem),
+        HypnogramMarkData(date: hypnogramDataStart + 30*60 + 30, phase: .deep),
+        HypnogramMarkData(date: hypnogramDataStart + 60*60,      phase: .deep)
     ])
 }
 
@@ -131,7 +148,7 @@ fileprivate extension HypnogramChart {
     let hypnogramDataStart = startOfToday - 2*60*60
     
     HypnogramChart(data: [
-        HypnogramMarkData(date: hypnogramDataStart,           phase: "Awake"),
-        HypnogramMarkData(date: hypnogramDataStart + 9*60*60, phase: "Awake"),
+        HypnogramMarkData(date: hypnogramDataStart,           phase: .awake),
+        HypnogramMarkData(date: hypnogramDataStart + 9*60*60, phase: .awake)
     ])
 }

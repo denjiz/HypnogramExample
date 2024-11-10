@@ -7,9 +7,16 @@
 
 import Foundation
 
+enum HypnogramPhase: String, CaseIterable {
+    case awake = "Awake"
+    case rem = "REM"
+    case core = "Core"
+    case deep = "Deep"
+}
+
 struct HypnogramMarkData: Identifiable, Equatable {
     let date: Date
-    let phase: String
+    let phase: HypnogramPhase
     
     var id: String {
         "\(date.timeIntervalSince1970)-\(phase)"
@@ -45,12 +52,14 @@ extension HomeViewModel {
             }
             .flatMap { $0 }
             .map { dataPoint in
-                let date = Date(timeIntervalSince1970: dataPoint.timestamp)
-                let phase = dataPoint.phase
+                guard let markPhase = HypnogramPhase(rawValue: dataPoint.phase) else {
+                    fatalError("Repository data is not valid.")
+                }
+                let markDate = Date(timeIntervalSince1970: dataPoint.timestamp)
                 
                 return HypnogramMarkData(
-                    date: date,
-                    phase: phase
+                    date: markDate,
+                    phase: markPhase
                 )
             }
     }
