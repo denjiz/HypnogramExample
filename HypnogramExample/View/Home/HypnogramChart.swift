@@ -10,6 +10,7 @@ import Charts
 
 struct HypnogramChart: View {
     let data: [HypnogramMarkData]
+    private let texts = UITexts.Generic.self
     
     var body: some View {
         Chart {
@@ -38,21 +39,46 @@ struct HypnogramChart: View {
            let lastMarkData = data.last,
            firstMarkData != lastMarkData
         {
-            indicator(for: firstMarkData, label: "Start")
-            indicator(for: lastMarkData, label: "End")
+            indicator(for: firstMarkData, label: texts.start.capitalized)
+            indicator(for: lastMarkData, label: texts.end.capitalized)
         }
     }
     
     private func indicator(for markData: HypnogramMarkData, label: String) -> some ChartContent {
+        indicatorMark(for: markData)
+            .annotation(spacing: 0) {
+                indicatorAnnotation(label: label, date: markData.date)
+            }
+    }
+    
+    private func indicatorMark(for markData: HypnogramMarkData) -> PointMark {
         PointMark(
             x: .value("Date", markData.date),
             y: .value("Phase", markData.phase)
         )
-        .annotation {
+    }
+    
+    private func indicatorAnnotation(label: String, date: Date) -> some View {
+        let backgroundColor = Color.black.opacity(0.8)
+        
+        return VStack(spacing: -1) {
             VStack {
                 Text(label)
-                Text(markData.date, format: .dateTime.hour().minute())
+                Text(date, format: .dateTime.hour().minute())
             }
+            .font(.callout)
+            .foregroundStyle(.white)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 2)
+            .background(
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(backgroundColor)
+            )
+            
+            Image(systemName: "arrowtriangle.down.fill")
+                .font(.system(size: 8))
+                .foregroundStyle(backgroundColor)
+                .scaleEffect(x: 2)
         }
     }
     

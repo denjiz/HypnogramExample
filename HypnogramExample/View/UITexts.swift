@@ -9,6 +9,11 @@ import Foundation
 
 enum UITexts {
     
+    enum Generic {
+        static let start = "start"
+        static let end = "end"
+    }
+    
     enum Home {
         static let title = "Last Night's Sleep"
     }
