@@ -19,6 +19,9 @@ struct HypnogramChart: View {
         .chartXAxis {
             xAxisContent
         }
+        .chartYAxis {
+            yAxisContent
+        }
     }
     
     private var lineMarks: some ChartContent {
@@ -59,6 +62,10 @@ struct HypnogramChart: View {
             AxisTick()
             AxisValueLabel(format: .dateTime.hour().minute())
         }
+    }
+    
+    private var yAxisContent: some AxisContent {
+        AxisMarks(preset: .extended)
     }
 }
 
