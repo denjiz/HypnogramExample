@@ -72,47 +72,18 @@ struct HypnogramChart: View {
            let lastMarkData = data.last,
            firstMarkData != lastMarkData
         {
-            indicator(for: firstMarkData, label: genericTexts.start.capitalized)
-            indicator(for: lastMarkData, label: genericTexts.end.capitalized)
+            highlightIndicator(for: firstMarkData, label: genericTexts.start.capitalized)
+            highlightIndicator(for: lastMarkData, label: genericTexts.end.capitalized)
         }
     }
     
-    private func indicator(for markData: HypnogramMarkData, label: String) -> some ChartContent {
-        indicatorMark(for: markData)
-            .annotation {
-                indicatorAnnotation(label: label, date: markData.date)
-            }
-    }
-    
-    private func indicatorMark(for markData: HypnogramMarkData) -> PointMark {
+    private func highlightIndicator(for markData: HypnogramMarkData, label: String) -> some ChartContent {
         PointMark(
             x: .value("Date", markData.date),
             y: .value("Phase", markData.phase)
         )
-    }
-    
-    private func indicatorAnnotation(label: String, date: Date) -> some View {
-        let backgroundColor = Color.white
-        
-        return VStack(spacing: -1) {
-            VStack(spacing: 0) {
-                Text(label)
-                Text(date, format: .dateTime.hour().minute())
-                    .fontWeight(.bold)
-            }
-            .font(.callout)
-            .foregroundStyle(.background)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 2)
-            .background(
-                RoundedRectangle(cornerRadius: 6)
-                    .fill(backgroundColor)
-            )
-            
-            Image(systemName: "arrowtriangle.down.fill")
-                .font(.system(size: 8))
-                .foregroundStyle(backgroundColor)
-                .scaleEffect(x: 2)
+        .annotation {
+            HypnogramHighlightAnnotation(label: label, date: markData.date)
         }
     }
     
