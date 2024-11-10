@@ -12,18 +12,52 @@ struct HypnogramChart: View {
     let data: [HypnogramMarkData]
     
     var body: some View {
-        Chart(data) { markData in
+        Chart {
+            lineMarks
+            startAndEndIndicators
+         }
+        .chartXAxis {
+            xAxisContent
+        }
+    }
+    
+    private var lineMarks: some ChartContent {
+        ForEach(data) { markData in
             LineMark(
                 x: .value("Date", markData.date),
                 y: .value("Phase", markData.phase)
             )
         }
-        .chartXAxis {
-            AxisMarks(values: .stride(by: .hour, count: 2)) {
-                AxisGridLine()
-                AxisTick()
-                AxisValueLabel(format: .dateTime.hour().minute())
+    }
+    
+    @ChartContentBuilder private var startAndEndIndicators: some ChartContent {
+        if let firstMarkData = data.first,
+           let lastMarkData = data.last,
+           firstMarkData != lastMarkData
+        {
+            indicator(for: firstMarkData, label: "Start")
+            indicator(for: lastMarkData, label: "End")
+        }
+    }
+    
+    private func indicator(for markData: HypnogramMarkData, label: String) -> some ChartContent {
+        PointMark(
+            x: .value("Date", markData.date),
+            y: .value("Phase", markData.phase)
+        )
+        .annotation {
+            VStack {
+                Text(label)
+                Text(markData.date, format: .dateTime.hour().minute())
             }
+        }
+    }
+    
+    private var xAxisContent: some AxisContent {
+        AxisMarks(values: .stride(by: .hour, count: 2)) {
+            AxisGridLine()
+            AxisTick()
+            AxisValueLabel(format: .dateTime.hour().minute())
         }
     }
 }
