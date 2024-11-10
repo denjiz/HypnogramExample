@@ -26,4 +26,4 @@ This app was made as a programming exercise.
 
 Upon launch, the app displays the simulated hypnogram for the user's last night of sleep.
 
-To test the chart with different data, modify the [example data generation code](https://github.com/denjiz/HypnogramExample/blob/31520702efa8673bc21c4e427a6f0d53b5fa94d8/HypnogramExample/DataAccess/HypnogramDataRepository.swift#L42) in `HypnogramDataRepository.swift`.
+To test the chart with different data, modify the [example data generation code](https://github.com/denjiz/HypnogramExample/blob/853e25797bb57361aec81cac0ba7c8c98307a9b0/HypnogramExample/DataAccess/HypnogramDataRepository.swift#L46) in `HypnogramDataRepository.swift`.
