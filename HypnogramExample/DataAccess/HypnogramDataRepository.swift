@@ -41,11 +41,11 @@ fileprivate extension ExampleHypnogramDataRepository {
     
     static func generateExampleData() -> [HypnogramDataPoint] {
         let startOfToday = Calendar.current.startOfDay(for: Date())
-        let dataStartTimestamp = startOfToday.timeIntervalSince1970 - 2*60*60
+        let dataStartTimestamp = startOfToday.timeIntervalSince1970 - 122*60
         
         let phases = [
-            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 5),
-            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 10),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 10),
             PhaseGenerationInfo(phase: "Core",  durationInMinutes: 20),
             PhaseGenerationInfo(phase: "Deep",  durationInMinutes: 60),
             PhaseGenerationInfo(phase: "Core",  durationInMinutes: 20),
@@ -59,18 +59,18 @@ fileprivate extension ExampleHypnogramDataRepository {
             PhaseGenerationInfo(phase: "Awake", durationInMinutes: 1),
             PhaseGenerationInfo(phase: "REM",   durationInMinutes: 5),
             PhaseGenerationInfo(phase: "Core",  durationInMinutes: 2),
-            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 1),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 5),
             PhaseGenerationInfo(phase: "Awake", durationInMinutes: 2),
-            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 2),
-            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 1),
+            PhaseGenerationInfo(phase: "REM",   durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 2),
             PhaseGenerationInfo(phase: "REM",   durationInMinutes: 20),
             PhaseGenerationInfo(phase: "Core",  durationInMinutes: 5),
             PhaseGenerationInfo(phase: "REM",   durationInMinutes: 10),
             PhaseGenerationInfo(phase: "Core",  durationInMinutes: 30),
             PhaseGenerationInfo(phase: "REM",   durationInMinutes: 10),
-            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 5),
+            PhaseGenerationInfo(phase: "Core",  durationInMinutes: 15),
             PhaseGenerationInfo(phase: "REM",   durationInMinutes: 50),
-            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 70)
+            PhaseGenerationInfo(phase: "Awake", durationInMinutes: 60)
         ]
         
         let dataPoints = generateDataPoints(
