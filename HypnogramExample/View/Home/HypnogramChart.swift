@@ -79,7 +79,7 @@ struct HypnogramChart: View {
     
     private func indicator(for markData: HypnogramMarkData, label: String) -> some ChartContent {
         indicatorMark(for: markData)
-            .annotation(spacing: 0) {
+            .annotation {
                 indicatorAnnotation(label: label, date: markData.date)
             }
     }
@@ -92,16 +92,17 @@ struct HypnogramChart: View {
     }
     
     private func indicatorAnnotation(label: String, date: Date) -> some View {
-        let backgroundColor = Color.black.opacity(0.8)
+        let backgroundColor = Color.white
         
         return VStack(spacing: -1) {
-            VStack {
+            VStack(spacing: 0) {
                 Text(label)
                 Text(date, format: .dateTime.hour().minute())
+                    .fontWeight(.bold)
             }
             .font(.callout)
-            .foregroundStyle(.white)
-            .padding(.horizontal, 16)
+            .foregroundStyle(.background)
+            .padding(.horizontal, 12)
             .padding(.vertical, 2)
             .background(
                 RoundedRectangle(cornerRadius: 6)
